@@ -41,6 +41,8 @@ def view():
                 if login_:
                     input('Pressione enter para deslogar!')
 
+                    os.system('clear')
+
                     break
 
         if option == 3:
