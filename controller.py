@@ -97,8 +97,12 @@ def login(email, password):
             if user.password == password_value:
                 print(f'{user.name} está logado!')
 
+                return True
+
             else:
                 print('Senha incorreta!')
+
+                return False
 
     except NoResultFound:
         print('Este usuario não existe!')
