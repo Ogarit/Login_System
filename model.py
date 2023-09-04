@@ -1,7 +1,7 @@
 from sqlalchemy import create_engine, Column, Integer, String, LargeBinary
 from sqlalchemy.orm import sessionmaker, declarative_base
 
-CONN = f'mysql+pymysql://{"root"}:{"Tiago203*"}@{"localhost"}:{"3306"}/{"login"}'
+CONN = f'mysql+pymysql://{"root"}:{""}@{"localhost"}:{"3306"}/{"login"}'
 engine = create_engine(CONN, echo=False)
 
 Base = declarative_base()
