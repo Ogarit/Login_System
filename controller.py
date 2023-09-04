@@ -35,11 +35,9 @@ def register(name, email, password):
                                 password_check = False
 
                             if password_check:
-                                password_ = password[::-1].encode('utf-8')
-                                password = password.encode('utf-8')
                                 digest = hashes.Hash(hashes.SHA256())
-                                digest.update(password)
-                                digest.update(password_)
+                                digest.update(password.encode('utf-8'))
+                                digest.update(password[::-1].encode('utf-8'))
                                 password_value = digest.finalize()
 
                                 print(save_user(name, email, password_value))
@@ -87,11 +85,9 @@ def login(email, password):
         user = users.filter_by(email=email).one()
 
         if user:
-            password_ = password[::-1].encode('utf-8')
-            password = password.encode('utf-8')
             digest = hashes.Hash(hashes.SHA256())
-            digest.update(password)
-            digest.update(password_)
+            digest.update(password.encode('utf-8'))
+            digest.update(password[::-1].encode('utf-8'))
             password_value = digest.finalize()
 
             if user.password == password_value:
